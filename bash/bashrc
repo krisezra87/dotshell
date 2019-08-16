@@ -1,0 +1,11 @@
+source ~/.shell/bash/bash_config
+source ~/.shell/bash/bash_colors
+source ~/.shell/shell_aliases
+source ~/.shell/shell_functions
+source ~/.vim/.bash_vim
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ -f /usr/share/fzf/key-bindings.bash ] && source /usr/share/fzf/key-bindings.bash
+[ -f /usr/share/fzf/completion.bash ] && source /usr/share/fzf/completion.bash
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

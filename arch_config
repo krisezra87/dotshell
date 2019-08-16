@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# Pacman aliases
+alias pac="sudo pacman -S"
+alias pacpurge="sudo pacman -Rns $(pacman -Qdtq) || sudo pacman -Sc"
+
+# Easy utility aliases
+alias wifi="nmtui"
+alias print=lpr
+
+# Configuration aliases
+alias IC="e .config/i3/config"
+alias QC="e .config/qutebrowser/config.py"
+alias preview="fzf --preview 'bat --style=numbers --color=always {}'"
+
+# Remapping of common commands
+alias cat="bat --theme=1337 --style='numbers,changes,header'"
+alias ll="exa --tree --level=2 --long"

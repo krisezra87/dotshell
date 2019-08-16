@@ -1,0 +1,63 @@
+# Aliases
+alias gbr="git branch -a"
+alias gs="git status"
+alias gl="git log --stat --name-status --pretty=short --abbrev-commit"
+alias gf="git fetch --prune"
+alias gp="git push"
+alias gm="git merge"
+
+alias sl=ls
+alias claer=clear
+
+alias hist=history
+
+if hash neofetch 2>/dev/null; then
+    alias version=neofetch
+else
+    if has lsb_release 2>/dev/null; then
+        alias version="uname -r && lsb_release -a"
+    else
+        alias version="uname -r"
+    fi
+fi
+
+# Easier navigation: .., ..., ...., .....
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+
+# USE THE COLORS
+colorflag="--color"
+
+# List all files colorized in long format
+alias l="ls -lF ${colorflag}"
+
+# List all files colorized in long format, including dot files
+alias la="ls -laF ${colorflag}"
+
+# List only directories
+alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
+
+# Always use color output for `ls`
+alias ls="command ls ${colorflag}"
+
+# Enable aliases to be sudoed
+alias sudo='sudo '
+
+alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
+
+# Print each PATH entry on a separate line
+alias path='echo -e ${PATH//:/\\n}'
+
+# Let colors work in tmux
+alias tmux="tmux -2"
+
+# Load a tmux session rapidly
+alias tmux0="tmux a -t 0"
+alias mat="matlab -nosplash -nodisplay -nodesktop"
+
+alias update="sudo pacman -Syu"
+alias d="dirs -v"
+
+alias build="make clean && rm -f config.h && make && sudo make install"

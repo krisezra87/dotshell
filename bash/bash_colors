@@ -1,0 +1,50 @@
+bold=`echo -en "\e[1m"`
+underline=`echo -en "\e[4m"`
+dim=`echo -en "\e[2m"`
+strikethrough=`echo -en "\e[9m"`
+blink=`echo -en "\e[5m"`
+reverse=`echo -en "\e[7m"`
+hidden=`echo -en "\e[8m"`
+normal=`echo -en "\e[0m"`
+black=`echo -en "\e[30m"`
+white=`echo -en "\e[97m"`
+default=`echo -en "\e[39m"`
+BLACK=`echo -en "\e[40m"`
+WHITE=`echo -en "\e[107m"`
+DEFAULT=`echo -en "\e[49m"`
+
+function textColor {
+    printf '\\[\\033[38;5;'
+    printf $1
+    printf 'm\\]'
+}
+
+orange=$(textColor 173)
+gray=$(textColor 246)
+blue=$(textColor 111)
+
+PS1="${orange}\u@" # User and @
+PS1+="${orange}\h${normal} " # Host and :
+PS1+="${blue} \w  ${normal}" # Path
+PS1+="\n\\$ "
+
+PS1="\n$PS1"
+
+LS_COLORS="di=38;5;77:fi=38;5;229:ln=38;5;111:ex=38;5;173"
+export LS_COLORS
+
+# If you want another, properly escaped way to do colors from rgb values and you're a psychopath
+#function rgbv {
+#    printf '\\e[38;2;'
+#    printf $1
+#    printf ';'
+#    printf $2
+#    printf ';'
+#    printf $3
+#}
+#g=$(rgbv 95 215 95) # ANSI 76
+#o=$(rgbv 215 135 95) # ANSI 173
+#b=$(rgbv 135 175 255) # ANSI 111
+#y=$(rgbv 255 255 175) # ANSI 229
+#LS_COLORS="di=${g}:fi=${y}:ln=${b}:ex=${o}";
+#unset g o b y

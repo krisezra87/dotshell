@@ -9,6 +9,6 @@ git clone https://github.com/zsh-users/zsh-autosuggestions.git $HOME/.oh-my-zsh/
 ln -sf ~/.shell/zshrc ~/.zshrc
 
 mkdir -p ~/.oh-my-zsh/plugins/git-auto-status
-ln -sf ~/.shell/git-auto-status.plugin.zsh ~/.oh-my-zsh/plugins/git-auto-status/git-auto-status.plugin.zsh
+ln -sf ~/.shell/zsh/git-auto-status.plugin.zsh ~/.oh-my-zsh/plugins/git-auto-status/git-auto-status.plugin.zsh
 
-ln -sf ~/.shell/kris.zsh-theme ~/.oh-my-zsh/themes/kris.zsh-theme
+ln -sf ~/.shell/zsh/kris.zsh-theme ~/.oh-my-zsh/themes/kris.zsh-theme
