@@ -20,7 +20,14 @@ else
     fi
 fi
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+if $FLAG; then
+    mkdir -p ~/.shell
+    mv $DIR/* ~/.shell/
+    cd ~
+    rmdir $DIR
+fi
+
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # Set up Zsh auto suggestions
 git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/plugins/zsh-autosuggestions
