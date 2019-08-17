@@ -27,4 +27,5 @@ if $FLAG; then
     rmdir $DIR
 fi
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" ; ~/.shell/configureZsh.sh ; ~/.shell/installTmux.sh
+# Note, must exit from zsh for changes to take effect.
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" ; ~/.shell/zsh/configureZsh.sh ; ~/.shell/installTmux.sh
