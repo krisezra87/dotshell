@@ -107,7 +107,7 @@ bindkey "$terminfo[kcud1]" down-line-or-beginning-search # Down
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-source ~/.bash/bash_aliases
-source ~/.bash/bash_functions
-source ~/.bash_local_config
+source ~/.shell/shell_aliases
+source ~/.shell/shell_functions
+source ~/.shell/arch_config
 source ~/.vim/.bash_vim
