@@ -113,3 +113,8 @@ source ~/.shell/shell_aliases
 source ~/.shell/shell_functions
 source ~/.shell/arch_config
 source ~/.vim/.bash_vim
+
+# If there's a local config, source it
+if [ -f ~/.local_shell_config ]; then
+    source ~/.local_shell_config
+fi
