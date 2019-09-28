@@ -118,3 +118,5 @@ source ~/.vim/.bash_vim
 if [ -f ~/.local_shell_config ]; then
     source ~/.local_shell_config
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
