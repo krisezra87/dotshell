@@ -42,6 +42,7 @@ echo "source ~/.shell/bash/shell_functions" >> ~/.bashrc
 echo "source ~/.bashrc" >> ~/.bash_profile
 
 ln -sf ~/.shell/bash/inputrc ~/.inputrc
+ln -sf ~/.shell/bash/.fzf.bash ~/.fzf.bash
 
 # Install tmux
 bash ~/.shell/installTmux.sh
