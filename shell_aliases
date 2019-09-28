@@ -6,6 +6,11 @@ alias gf="git fetch --prune"
 alias gp="git push"
 alias gm="git merge"
 
+alias GS="find . -maxdepth 2 -name .git -print -execdir git status \;"
+alias GF="find . -maxdepth 2 -name .git -print -execdir git fetch --prune \;"
+alias GP="find . -maxdepth 2 -name .git -print -execdir git push \;"
+alias GM="find . -maxdepth 2 -name .git -print -execdir git merge --ff-only \;"
+
 alias sl=ls
 alias claer=clear
 
