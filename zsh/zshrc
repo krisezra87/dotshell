@@ -111,8 +111,11 @@ bindkey "$terminfo[kcud1]" down-line-or-beginning-search # Down
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source ~/.shell/shell_aliases
 source ~/.shell/shell_functions
-source ~/.shell/arch_config
 source ~/.vim/.bash_vim
+
+if [ -f "/etc/arch-release" ]; then
+    source ~/.shell/arch_config
+fi
 
 # If there's a local config, source it
 if [ -f ~/.local_shell_config ]; then
