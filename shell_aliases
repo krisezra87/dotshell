@@ -62,7 +62,11 @@ alias tmux="tmux -2"
 alias tmux0="tmux a -t 0"
 alias mat="matlab -nosplash -nodisplay -nodesktop"
 
-alias update="sudo pacman -Syu"
+if [ -f "/etc/arch-release" ]; then
+    alias update="sudo pacman -Syu"
+else
+    alias update="sudo apt update && sudo apt upgrade"
+fi
 alias d="dirs -v"
 
 alias build="make clean && rm -f config.h && make && sudo make install"
