@@ -35,8 +35,8 @@ fi
 # Add to .bashrc
 echo "source ~/.shell/bash/bash_config" >> ~/.bashrc
 echo "source ~/.shell/bash/bash_colors" >> ~/.bashrc
-echo "source ~/.shell/bash/shell_aliases" >> ~/.bashrc
-echo "source ~/.shell/bash/shell_functions" >> ~/.bashrc
+echo "source ~/.shell/shell_aliases" >> ~/.bashrc
+echo "source ~/.shell/shell_functions" >> ~/.bashrc
 
 # Add to .bash_profile
 echo "source ~/.bashrc" >> ~/.bash_profile
