@@ -51,7 +51,7 @@ alias ls="command ls ${colorflag}"
 alias sudo='sudo '
 
 # take local configs with you for sudo su
-alias su="sudo -E su -p"
+alias suroot="sudo -E su -p"
 
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 
