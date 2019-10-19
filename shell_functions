@@ -104,3 +104,22 @@ function gwhere {
         fi
     fi
 }
+
+function tex {
+    if [ -z "$1" ]; then
+        echo "No latex file supplied!"
+    else
+        TEX=.tex
+        AUX=.aux
+        filename=$(basename -- $1)
+        pdflatex "${filename%%.*}$TEX"
+        bibtex "${filename%%.*}$AUX"
+        pdflatex "${filename%%.*}$TEX"
+        pdflatex "${filename%%.*}$TEX"
+        rm "${filename%%.*}.log"
+        rm "${filename%%.*}.abs"
+        rm "${filename%%.*}.blg"
+        rm "${filename%%.*}.aux"
+        rm "${filename%%.*}.out"
+    fi
+}
