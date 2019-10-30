@@ -13,6 +13,7 @@ alias GM="find . -maxdepth 2 -name .git -print -execdir git merge --ff-only \;"
 
 alias sl=ls
 alias claer=clear
+alias clc=clear
 
 alias hist=history
 
@@ -63,7 +64,7 @@ alias tmux="tmux -2"
 
 # Load a tmux session rapidly
 alias tmux0="tmux a -t 0"
-alias mat="matlab -nosplash -nodisplay -nodesktop"
+alias mat="matlab -nosplash -nodesktop"
 
 if [ -f "/etc/arch-release" ]; then
     alias update="sudo pacman -Syu"
