@@ -121,5 +121,7 @@ function tex {
         rm "${filename%%.*}.blg"
         rm "${filename%%.*}.aux"
         rm "${filename%%.*}.out"
+        rm "${filename%%.*}.dvi"
+        rm "${filename%%.*}.bbl"
     fi
 }
