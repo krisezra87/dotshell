@@ -27,6 +27,10 @@ else
     fi
 fi
 
+if [ -f ~/.config/vifm/scripts/vifmrun ]; then
+    alias vifm="~/.config/vifm/scripts/vifmrun"
+fi
+
 # Easier navigation: .., ..., ...., .....
 alias ..="cd .."
 alias ...="cd ../.."
