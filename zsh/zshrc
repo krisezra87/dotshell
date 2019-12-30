@@ -107,6 +107,28 @@ bindkey "$terminfo[kcud1]" down-line-or-beginning-search # Down
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+setopt HIST_IGNORE_SPACE
+alias cd=' cd'
+alias ls=' ls'
+alias sl=' ls'
+alias gs=' gs'
+alias gm=' gm'
+alias gf=' gf'
+alias clear=' clear'
+alias clc=' clear'
+alias wifi=' wifi'
+alias vifm=' vifm'
+alias which=' which'
+alias hist=' hist'
+alias exit=' exit'
+alias update=' update'
+alias fzf=' fzf'
+alias source=' source'
+alias webvpn=' webvpn'
+alias :q=' exit'
+alias man=' man'
+alias startx=' startx'
+
 source ~/.shell/shell_aliases
 source ~/.shell/shell_functions
 
