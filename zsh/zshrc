@@ -1,7 +1,10 @@
 # Disable some authentication business for switching to su
 ZSH_DISABLE_COMPFIX=true
+HISTFILE="~/.zsh_history"
 
 export ZSH="$HOME/.zsh"
+
+setopt auto_cd
 
 # Set Theme
 source ~/.zsh/spectrum.zsh
