@@ -1,23 +1,12 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Disable some authentication business for switching to su
 ZSH_DISABLE_COMPFIX=true
 
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+export ZSH="$HOME/.zsh"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="kris"
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+# Set Theme
+source ~/.zsh/spectrum.zsh
+source ~/.zsh/git.zsh
+source ~/.zsh/wombat-theme.zsh
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -25,15 +14,6 @@ ZSH_THEME="kris"
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to automatically update without prompting.
-DISABLE_UPDATE_PROMPT="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-export UPDATE_ZSH_DAYS=1
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS=true
@@ -63,21 +43,7 @@ ENABLE_CORRECTION="true"
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git cp dircycle dirpersist vi-mode archlinux git-auto-status zsh-autosuggestions)
-
-source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
+### User configuration ###
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -96,18 +62,10 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey "$terminfo[kcuu1]" up-line-or-beginning-search # Up
 bindkey "$terminfo[kcud1]" down-line-or-beginning-search # Down
-
 # For more termkeys see /etc/zsh/zshrc
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 setopt HIST_IGNORE_SPACE
+alias ZC='vim ~/.zshrc'
 alias cd=' cd'
 alias ls=' ls'
 alias sl=' ls'
@@ -129,20 +87,23 @@ alias :q=' exit'
 alias man=' man'
 alias startx=' startx'
 
+### PLUGINS ###
+source ~/.zsh/git-autostatus.zsh
+source ~/.zsh/dirpersist.zsh
+source ~/.zsh/vi-mode.zsh
+
+## Additional common aliases, functions, etc
 source ~/.shell/shell_aliases
 source ~/.shell/shell_functions
 
-if [ -f ~/.vim/.shell_vim ]; then
-    source ~/.vim/.shell_vim
-fi
+[ -f ~/.vim/.shell_vim ]          && source ~/.vim/.shell_vim
+[ -f "/etc/arch-release" ]        && source ~/.shell/arch_config
+[ -f ~/.local_shell_config ]      && source ~/.local_shell_config
+[ -f ~/.fzf.zsh ]                 && source ~/.fzf.zsh
 
-if [ -f "/etc/arch-release" ]; then
-    source ~/.shell/arch_config
-fi
+[ -d ~/.zsh/zsh-autosuggestions ] \
+    && source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-# If there's a local config, source it
-if [ -f ~/.local_shell_config ]; then
-    source ~/.local_shell_config
-fi
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# This is available from arch repos
+[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ] \
+    && source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null

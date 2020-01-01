@@ -1,7 +1,5 @@
-# Define some colors
-#eval g="$FG[076]"
-#eval y="$FG[229]"
-
+set -o PROMPT_SUBST
+reset_color='[00m'
 eval orange='$FG[173]'
 eval gray='$FG[246]'
 eval blue='$FG[111]'
@@ -14,7 +12,7 @@ export LS_COLORS
 
 ZSH_THEME_GIT_PROMPT_PREFIX="(git:"
 ZSH_THEME_GIT_PROMPT_SUFFIX=")$reset_color"
-ZSH_THEME_GIT_PROMPT_DIRTY="$fg[red]+"
+ZSH_THEME_GIT_PROMPT_DIRTY="$FG[009]+"
 ZSH_THEME_GIT_PROMPT_CLEAN="$FG[077]"
 
 function git_base_folder {
@@ -64,4 +62,4 @@ function put_spacing {
 # RPROMPT='${orange}%n@%m: ${blue}$(get_pwd)$(put_spacing)$(git_prompt_info)${reset_color}%(!.#.$) '
 
 PROMPT='${newline}${orange}%n@%m: ${blue}$(get_pwd) $(git_prompt_info)${reset_color}${newline}%(!.#.$) '
-RPROMPT='${newline}${orange}%n@%m: ${blue}$(get_pwd) $(git_prompt_info)${reset_color}${newline}%(!.#.$) '
+# RPROMPT='${newline}${orange}%n@%m: ${blue}$(get_pwd) $(git_prompt_info)${reset_color}${newline}%(!.#.$) '

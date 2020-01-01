@@ -1,7 +1,8 @@
-# Run git status after specified set of command
-#
-# @author Oleksandr Shybystyi oleksandr.shybystyi@gmail.com
-#
+### GIT AUTO STATUS ###
+# taken from oh my zsh
+function current_branch() {
+  git_current_branch
+}
 
 # default list of git commands `git status` is running after
 gitPreAutoStatusCommands=(
