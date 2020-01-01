@@ -64,4 +64,4 @@ function put_spacing {
 # RPROMPT='${orange}%n@%m: ${blue}$(get_pwd)$(put_spacing)$(git_prompt_info)${reset_color}%(!.#.$) '
 
 PROMPT='${newline}${orange}%n@%m: ${blue}$(get_pwd) $(git_prompt_info)${reset_color}${newline}%(!.#.$) '
-RPROMPT='${newline}${orange}%n@%m: ${blue}$(get_pwd) $(git_prompt_info)${reset_color}${newline}%(!.#.$) '
+# RPROMPT='${newline}${orange}%n@%m: ${blue}$(get_pwd) $(git_prompt_info)${reset_color}${newline}%(!.#.$) '
