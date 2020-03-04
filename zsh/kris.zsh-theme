@@ -19,11 +19,11 @@ ZSH_THEME_GIT_PROMPT_CLEAN="$FG[077]"
 
 function git_base_folder {
   local ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-  local gitdir=$(git rev-parse --show-toplevel)
-  if [ $gitdir = $HOME ]; then
+  local gitdir=$(git rev-parse --show-toplevel) > /dev/null 2>&1
+  if [ $gitdir = $HOME ] > /dev/null 2>&1; then
       tailname="~"
   else
-      tailname=$(basename ${gitdir})
+      tailname=$(basename ${gitdir}) > /dev/null 2>&1
   fi
   echo "(${tailname}:"
 }
