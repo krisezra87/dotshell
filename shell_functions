@@ -22,7 +22,7 @@ function tmuxer {
         # Name first Pane and start zsh
         tmux rename-window -t 0 'Main'
         tmux send-keys -t 'Main' "cd $DIR" C-m 'clear' C-m
-        tmux send-keys -t 'Main' "vim $DIR" C-m
+        tmux send-keys -t 'Main' "nocorrect vim --servername $SESSION $DIR" C-m
     fi
 
 # Attach Session, on the Main window
