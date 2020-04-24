@@ -71,7 +71,11 @@ alias tmux0="tmux a -t 0"
 alias mat="matlab -nosplash -nodesktop"
 
 if [ -f "/etc/arch-release" ]; then
-    alias update="sudo pacman -Syu"
+    if hash yay 2>/dev/null; then
+        alias update="yay -Syu"
+    else
+        alias update="sudo pacman -Syu"
+    fi
 else
     alias update="sudo apt update && sudo apt upgrade"
 fi
