@@ -1,7 +1,4 @@
 # Define some colors
-#eval g="$FG[076]"
-#eval y="$FG[229]"
-
 eval orange='$FG[173]'
 eval gray='$FG[246]'
 eval blue='$FG[111]'
@@ -58,10 +55,6 @@ function put_spacing {
     done
     echo $spacing
 }
-
-# For right prompt (ish)
-# PROMPT='${orange}%n@%m: ${blue}$(get_pwd)$(put_spacing)$(git_prompt_info)${reset_color}%(!.#.$) '
-# RPROMPT='${orange}%n@%m: ${blue}$(get_pwd)$(put_spacing)$(git_prompt_info)${reset_color}%(!.#.$) '
 
 PROMPT='${newline}${orange}%n@%m: ${blue}$(get_pwd) $(git_prompt_info)${reset_color}${newline}%(!.#.$) '
 # RPROMPT='${newline}${orange}%n@%m: ${blue}$(get_pwd) $(git_prompt_info)${reset_color}${newline}%(!.#.$) '
