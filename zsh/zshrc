@@ -132,17 +132,8 @@ alias startx=' startx'
 source ~/.shell/shell_aliases
 source ~/.shell/shell_functions
 
-if [ -f ~/.vim/.shell_vim ]; then
-    source ~/.vim/.shell_vim
-fi
-
-if [ -f "/etc/arch-release" ]; then
-    source ~/.shell/arch_config
-fi
-
-# If there's a local config, source it
-if [ -f ~/.local_shell_config ]; then
-    source ~/.local_shell_config
-fi
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Source local configs if necessary
+[[ -f ~/.vim/.shell_vim ]] && source ~/.vim/.shell_vim
+[[ -f "/etc/arch-release" ]] && source ~/.shell/arch_config
+[[ -f ~/.local_shell_config ]] && source ~/.local_shell_config
+[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
