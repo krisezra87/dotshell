@@ -10,4 +10,4 @@ fi
 
 # Key bindings
 # ------------
-source "$HOME/.fzf/shell/key-bindings.zsh"
+[[ -d ~/.fzf ]] && source "$HOME/.fzf/shell/key-bindings.zsh"
