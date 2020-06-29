@@ -2,8 +2,8 @@
 alias gbr="git branch -a"
 alias gs="git status"
 alias gl="git log --stat --name-status --pretty=short --abbrev-commit"
-alias gf="git fetch --prune"
-alias gp="git push"
+alias gf="git fetch --prune --all --tags"
+alias gp="git push && git push --tags"
 alias gm="git merge"
 
 alias GS="find . -maxdepth 2 -name .git -print -execdir git status \;"
