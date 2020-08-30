@@ -1,13 +1,16 @@
 # Setup fzf
 # ---------
-if [[ ! "$PATH" == *$HOME/.fzf/bin* ]]; then
-  export PATH="${PATH:+${PATH}:}$HOME/.fzf/bin"
+if [[ ! "$PATH" == */home/kezra/.fzf/bin* ]]; then
+  export PATH="${PATH:+${PATH}:}/home/kezra/.fzf/bin"
 fi
 
 # Auto-completion
 # ---------------
-[[ $- == *i* ]] && source "$HOME/.fzf/shell/completion.zsh" 2> /dev/null
+[[ $- == *i* ]] && source "/home/kezra/.fzf/shell/completion.zsh" 2> /dev/null
 
 # Key bindings
 # ------------
-[[ -d ~/.fzf ]] && source "$HOME/.fzf/shell/key-bindings.zsh"
+source "/home/kezra/.fzf/shell/key-bindings.zsh"
+
+# Add a default command to use ripgrep
+export FZF_DEFAULT_COMMAND='rg --files --hidden'

@@ -123,7 +123,7 @@ alias hist=' hist'
 alias exit=' exit'
 alias update=' update'
 alias fzf=' fzf'
-alias source=' source'
+# alias source=' source'
 alias webvpn=' webvpn'
 alias :q=' exit'
 alias man=' man'
@@ -132,8 +132,11 @@ alias startx=' startx'
 source ~/.shell/shell_aliases
 source ~/.shell/shell_functions
 
+export PATH=/usr/local/matlab/bin:$PATH
+
 # Source local configs if necessary
 [[ -f ~/.vim/.shell_vim ]] && source ~/.vim/.shell_vim
+[[ -f ~/.vim/zettel_functions ]] && source ~/.vim/zettel_functions
 [[ -f "/etc/arch-release" ]] && source ~/.shell/arch_config
 [[ -f ~/.local_shell_config ]] && source ~/.local_shell_config
 [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh

@@ -68,7 +68,7 @@ alias tmux="tmux -2"
 
 # Load a tmux session rapidly
 alias tmux0="tmux a -t 0"
-alias mat="matlab -nosplash -nodesktop"
+alias mat="[[ -z $(which matlab) ]] && /usr/local/matlab/bin/matlab -nosplash -nodesktop || matlab -nosplash -nodesktop"
 
 if [ -f "/etc/arch-release" ]; then
     if hash yay 2>/dev/null; then
