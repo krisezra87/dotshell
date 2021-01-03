@@ -141,3 +141,6 @@ export PATH=~/zettel:$PATH
 [[ -f "/etc/arch-release" ]] && source ~/.shell/arch_config
 [[ -f ~/.local_shell_config ]] && source ~/.local_shell_config
 [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
+
+# Add scripts
+export PATH=~/scripts:$PATH
