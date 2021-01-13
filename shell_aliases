@@ -76,6 +76,7 @@ if [ -f "/etc/arch-release" ]; then
     else
         alias update="sudo pacman -Syu"
     fi
+    alias reflect="sudo reflector -c 'US' -f 12 -l 12 -n 12 --verbose --save /etc/pacman.d/mirrorlist"
 else
     alias update="sudo apt update && sudo apt upgrade"
 fi
