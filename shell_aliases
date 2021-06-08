@@ -83,3 +83,11 @@ fi
 alias d="dirs -v"
 
 alias build="make clean && rm -f config.h && make && sudo make install"
+
+# Taskwarrior
+alias ta="task add $1"
+alias t="task list"
+alias report="task burndown.daily"
+alias wreport="task burndown.weekly"
+
+#taskopen is maybe something to add

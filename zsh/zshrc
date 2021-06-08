@@ -162,4 +162,12 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+READY="TASK READY"
+function task_indicator {
+    TASK="task"
+    if [ `$TASK +READY count` -gt "0" ]; then
+        echo $READY
+    fi
+}
 
+hash task 2>/dev/null && task_indicator
