@@ -163,11 +163,12 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-READY="TASK READY"
+NTASKS=2
 function task_indicator {
-    TASK="task"
-    if [ `$TASK +READY count` -gt "0" ]; then
-        echo $READY
+    TASK=( task project.not:students +READY )
+    if [ `"${TASK[@]}" count` -gt "0" ]; then
+        OUT=$("${TASK[@]}" minimal 2>/dev/null | head -n -2 | head -n $(($NTASKS+3)) )
+        echo "$OUT"
     fi
 }
 
