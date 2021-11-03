@@ -68,7 +68,7 @@ alias tmux="tmux -2"
 
 # Load a tmux session rapidly
 alias tmux0="tmux a -t 0"
-alias mat="[[ -z $(which matlab) ]] && /usr/local/matlab/bin/matlab -nosplash -nodesktop || matlab -nosplash -nodesktop"
+alias mat="/usr/local/MATLAB/R2021b/bin/matlab -nosplash -nodesktop"
 
 if [ -f "/etc/arch-release" ]; then
     if hash yay 2>/dev/null; then
@@ -91,3 +91,4 @@ alias report="task burndown.daily"
 alias wreport="task burndown.weekly"
 
 #taskopen is maybe something to add
+alias rpo="cd ~/GIT/rpo && conda activate rpo38"
