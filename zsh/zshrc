@@ -82,7 +82,7 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
-export EDITOR='vim'
+export EDITOR='nvim'
 
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
@@ -165,7 +165,7 @@ unset __conda_setup
 # <<< conda initialize <<<
 NTASKS=2
 function task_indicator {
-    TASK=( task project.not:students +READY )
+    TASK=( task project:work +READY )
     if [ `"${TASK[@]}" count` -gt "0" ]; then
         OUT=$("${TASK[@]}" minimal 2>/dev/null | head -n -2 | head -n $(($NTASKS+3)) )
         echo "$OUT"
@@ -173,3 +173,6 @@ function task_indicator {
 }
 
 hash task 2>/dev/null && task_indicator
+
+# Add a default command to use ripgrep
+export FZF_DEFAULT_COMMAND='rg --files --hidden'
