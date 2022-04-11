@@ -137,7 +137,7 @@ export PATH=/usr/local/matlab/bin:$PATH
 # Source local configs if necessary
 # [[ -f ~/.vim/.shell_vim ]] && source ~/.vim/.shell_vim
 [[ -f ~/.config/nvim/.shell_nvim ]] && source ~/.config/nvim/.shell_nvim
-[[ -f ~/zettel/zettel_functions ]] && source ~/zettel/zettel_functions
+# [[ -f ~/zettel/zettel_functions ]] && source ~/zettel/zettel_functions
 export PATH=~/zettel:$PATH
 [[ -f "/etc/arch-release" ]] && source ~/.shell/arch_config
 [[ -f ~/.local_shell_config ]] && source ~/.local_shell_config
@@ -165,7 +165,7 @@ unset __conda_setup
 # <<< conda initialize <<<
 NTASKS=2
 function task_indicator {
-    TASK=( task project:work +READY )
+    TASK=( task project:work project.not:workflow +READY )
     if [ `"${TASK[@]}" count` -gt "0" ]; then
         OUT=$("${TASK[@]}" minimal 2>/dev/null | head -n -2 | head -n $(($NTASKS+3)) )
         echo "$OUT"
