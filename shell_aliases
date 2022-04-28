@@ -68,8 +68,8 @@ alias tmux="tmux -2"
 
 # Load a tmux session rapidly
 alias tmux0="tmux a -t 0"
-alias mat="/usr/local/MATLAB/R2021b/bin/matlab -nosplash -nodesktop"
-alias matlab="/usr/local/MATLAB/R2021b/bin/matlab"
+alias mat="/usr/local/MATLAB/R2022a/bin/matlab -nosplash -nodesktop"
+alias matlab="/usr/local/MATLAB/R2022a/bin/matlab"
 
 if [ -f "/etc/arch-release" ]; then
     if hash yay 2>/dev/null; then
