@@ -5,7 +5,8 @@ alias pac="sudo pacman -S"
 # This will throw errors in the preview until you have done pacman -Fy
 alias pacsearch="pacman -Slq | fzf --multi --preview 'cat <(pacman -Si {1}) <(pacman -Fl {1} | awk \"{print \$2}\")' | xargs -ro sudo pacman -S"
 
-alias pacpurge="sudo pacman -Rns $(pacman -Qdtq) || sudo pacman -Sc"
+# alias pacpurge="sudo pacman -Rns $(pacman -Qdtq) || sudo pacman -Sc"
+alias pacpurge="yay -Yc"
 alias installed_packages="comm -23 <(pacman -Qqt | sort) <(pacman -Sqg base base-devel | sort)"
 
 # Easy utility aliases
