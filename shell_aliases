@@ -31,20 +31,8 @@ if [ -f ~/.config/vifm/scripts/vifmrun ]; then
     alias vifm="~/.config/vifm/scripts/vifmrun"
 fi
 
-# Easier navigation: .., ..., ...., .....
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-
 # USE THE COLORS
 colorflag="--color=auto"
-
-# List all files colorized in long format
-alias l="ls -lF ${colorflag}"
-
-# List all files colorized in long format, including dot files
-alias la="ls -laF ${colorflag}"
 
 # List only directories
 alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
@@ -68,8 +56,8 @@ alias tmux="tmux -2"
 
 # Load a tmux session rapidly
 alias tmux0="tmux a -t 0"
-alias mat="/usr/local/MATLAB/R2022a/bin/matlab -nosplash -nodesktop"
-alias matlab="/usr/local/MATLAB/R2022a/bin/matlab"
+# alias mat="/usr/local/MATLAB/R2022a/bin/matlab -nosplash -nodesktop"
+# alias matlab="/usr/local/MATLAB/R2022a/bin/matlab"
 
 if [ -f "/etc/arch-release" ]; then
     if hash yay 2>/dev/null; then
@@ -92,5 +80,5 @@ alias report="task burndown.daily"
 alias wreport="task burndown.weekly"
 
 #taskopen is maybe something to add
-alias rpo="cd ~/GIT/rpo && conda activate rpo38"
-alias dsf="cd ~/GIT/DSF"
+
+alias grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
