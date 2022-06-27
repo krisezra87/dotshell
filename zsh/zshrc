@@ -11,7 +11,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="kris"
+# ZSH_THEME="kris"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -45,7 +45,7 @@ export UPDATE_ZSH_DAYS=1
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -71,9 +71,23 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git dirpersist vi-mode git-auto-status zsh-autosuggestions)
+# plugins=(git dirpersist vi-mode git-auto-status zsh-autosuggestions)
+# plugins=(dirpersist vi-mode git-auto-status zsh-autosuggestions)
+# plugins=(vi-mode)
 
+fpath=("$ZSH/plugins/dirpersist" $fpath)
+fpath=("$ZSH/plugins/git-auto-status" $fpath)
+source $ZSH/plugins/dirpersist/dirpersist.plugin.zsh
+source $ZSH/plugins/git-auto-status/git-auto-status.plugin.zsh
+source $ZSH/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+# fpath=("$ZSH/plugins/vi-mode" $fpath)
+# source $ZSH/plugins/vi-mode/vi-mode.plugin.zsh
+source /home/kris/GIT/zsh-vi-mode/zsh-vi-mode.zsh
 source $ZSH/oh-my-zsh.sh
+source .oh-my-zsh/themes/kris.zsh-theme
+
+# VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
+# VI_MODE_SET_CURSOR=true
 
 # User configuration
 

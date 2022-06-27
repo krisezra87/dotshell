@@ -1,8 +1,10 @@
+# Uses ~/.oh-my-zsh/lib/git.zsh
+
 # Define some colors
 eval orange='$FG[173]'
-eval gray='$FG[246]'
+# eval gray='$FG[246]'
 eval blue='$FG[111]'
-eval green='$FG[076]'
+# eval green='$FG[076]'
 
 newline=$'\n'
 
@@ -31,10 +33,10 @@ function get_pwd {
 
 function git_prompt_info {
   ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-  local branch=$(current_branch)
+  local branch=$(git_current_branch)
   if [ ${#branch} != 0 ]; then
       ZSH_THEME_GIT_PROMPT_PREFIX=$(git_base_folder)
-      echo "$(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_PREFIX$(current_branch)$ZSH_THEME_GIT_PROMPT_SUFFIX\n"
+      echo "$(parse_git_dirty)$ZSH_THEME_GIT_PROMPT_PREFIX$(git_current_branch)$ZSH_THEME_GIT_PROMPT_SUFFIX\n"
   else
       return
   fi
@@ -57,4 +59,4 @@ function put_spacing {
 }
 
 PROMPT='${newline}${orange}%n@%m: ${blue}$(get_pwd) $(git_prompt_info)${reset_color}${newline}%(!.#.$) '
-# RPROMPT='${newline}${orange}%n@%m: ${blue}$(get_pwd) $(git_prompt_info)${reset_color}${newline}%(!.#.$) '
+RPROMPT='$(vi_mode_prompt_info)'
