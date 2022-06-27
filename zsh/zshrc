@@ -63,26 +63,17 @@ export UPDATE_ZSH_DAYS=1
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-# plugins=(git dirpersist vi-mode git-auto-status zsh-autosuggestions)
-# plugins=(dirpersist vi-mode git-auto-status zsh-autosuggestions)
-# plugins=(vi-mode)
-
 fpath=("$ZSH/plugins/dirpersist" $fpath)
 fpath=("$ZSH/plugins/git-auto-status" $fpath)
 source $ZSH/plugins/dirpersist/dirpersist.plugin.zsh
 source $ZSH/plugins/git-auto-status/git-auto-status.plugin.zsh
 source $ZSH/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-# fpath=("$ZSH/plugins/vi-mode" $fpath)
-# source $ZSH/plugins/vi-mode/vi-mode.plugin.zsh
-source /home/kris/GIT/zsh-vi-mode/zsh-vi-mode.zsh
+source /home/kris/GIT/config/zsh-vi-mode/zsh-vi-mode.zsh
+
+source /home/kris/GIT/config/zsh-z/zsh-z.plugin.zsh
+
+# Nice up completion menus for z
+zstyle ':completion:*' menu select
 source $ZSH/oh-my-zsh.sh
 source .oh-my-zsh/themes/kris.zsh-theme
 
