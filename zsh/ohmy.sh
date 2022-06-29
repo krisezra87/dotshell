@@ -41,20 +41,20 @@
 # If ZSH is not defined, use the current script's directory.
 [[ -z "$ZSH" ]] && export ZSH="${${(%):-%x}:a:h}"
 
-# # Set ZSH_CACHE_DIR to the path where cache files should be created
-# # or else we will use the default cache/
-# if [[ -z "$ZSH_CACHE_DIR" ]]; then
-#   ZSH_CACHE_DIR="$ZSH/cache"
-# fi
-#
-# # Make sure $ZSH_CACHE_DIR is writable, otherwise use a directory in $HOME
-# if [[ ! -w "$ZSH_CACHE_DIR" ]]; then
-#   ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/oh-my-zsh"
-# fi
-#
-# # Create cache and completions dir and add to $fpath
-# mkdir -p "$ZSH_CACHE_DIR/completions"
-# (( ${fpath[(Ie)"$ZSH_CACHE_DIR/completions"]} )) || fpath=("$ZSH_CACHE_DIR/completions" $fpath)
+# Set ZSH_CACHE_DIR to the path where cache files should be created
+# or else we will use the default cache/
+if [[ -z "$ZSH_CACHE_DIR" ]]; then
+  ZSH_CACHE_DIR="$ZSH/cache"
+fi
+
+# Make sure $ZSH_CACHE_DIR is writable, otherwise use a directory in $HOME
+if [[ ! -w "$ZSH_CACHE_DIR" ]]; then
+  ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/oh-my-zsh"
+fi
+
+# Create cache and completions dir and add to $fpath
+mkdir -p "$ZSH_CACHE_DIR/completions"
+(( ${fpath[(Ie)"$ZSH_CACHE_DIR/completions"]} )) || fpath=("$ZSH_CACHE_DIR/completions" $fpath)
 
 # add a function path
 fpath=("$ZSH/functions" "$ZSH/completions" $fpath)
@@ -75,9 +75,9 @@ if [[ -z "$ZSH_COMPDUMP" ]]; then
   ZSH_COMPDUMP="${ZDOTDIR:-$HOME}/.zcompdump-${SHORT_HOST}-${ZSH_VERSION}"
 fi
 
-# Construct zcompdump OMZ metadata
-zcompdump_revision="#omz revision: $(builtin cd -q "$ZSH"; git rev-parse HEAD 2>/dev/null)"
-zcompdump_fpath="#omz fpath: $fpath"
+# # Construct zcompdump OMZ metadata
+# zcompdump_revision="#omz revision: $(builtin cd -q "$ZSH"; git rev-parse HEAD 2>/dev/null)"
+# zcompdump_fpath="#omz fpath: $fpath"
 
 # Delete the zcompdump file if OMZ zcompdump metadata changed
 if ! command grep -q -Fx "$zcompdump_revision" "$ZSH_COMPDUMP" 2>/dev/null \
