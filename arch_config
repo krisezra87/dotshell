@@ -6,7 +6,7 @@ alias pac="sudo pacman -S"
 alias pacsearch="pacman -Slq | fzf --multi --preview 'cat <(pacman -Si {1}) <(pacman -Fl {1} | awk \"{print \$2}\")' | xargs -ro sudo pacman -S"
 
 # alias pacpurge="sudo pacman -Rns $(pacman -Qdtq) || sudo pacman -Sc"
-alias pacpurge="yay -Yc"
+alias pacpurge="yay -Yc | sudo paccache -r"
 alias installed_packages="comm -23 <(pacman -Qqt | sort) <(pacman -Sqg base base-devel | sort)"
 
 # Easy utility aliases
