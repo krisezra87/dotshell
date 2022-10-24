@@ -156,3 +156,11 @@ function tex {
         rm "${filename%%.*}.bbl"
     fi
 }
+
+function proj {
+    if [ -z "$1" ]; then
+        echo "No description provided!"
+    else
+        task add project:new "$@"
+    fi
+}
