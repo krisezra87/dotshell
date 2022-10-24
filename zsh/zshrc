@@ -111,4 +111,4 @@ function task_indicator {
 hash task 2>/dev/null && task_indicator
 
 # Add a default command to use ripgrep if ripgrep is installed
-hash rg && export FZF_DEFAULT_COMMAND='rg --files --hidden'
+hash rg && export FZF_DEFAULT_COMMAND='rg --files --hidden --glob=!.git'
