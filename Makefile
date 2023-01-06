@@ -11,6 +11,4 @@ link_configs:
 	@ln -sf ~/.shell/zsh/.fzf.zsh ~/.fzf.zsh
 
 change_shell:
-	[[ -z $(grep $(USER) /etc/passwd | grep zsh) ]] && \
-		{ echo "Setting shell to zsh..."; \
-			chsh -s $(chsh -l | grep zsh | tail -n 1) $(USER); }
+	@chsh -s /usr/bin/zsh $(USER)
