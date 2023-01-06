@@ -72,7 +72,6 @@ source ~/.shell/shell_functions
 
 # Source local configs if necessary
 [[ -f ~/.config/nvim/.shell_nvim ]] && source ~/.config/nvim/.shell_nvim
-[[ -f "/etc/arch-release" ]] && source ~/.shell/arch_config
 [[ -f ~/.local_shell_config ]] && source ~/.local_shell_config
 [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
 
