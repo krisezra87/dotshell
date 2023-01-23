@@ -105,6 +105,8 @@ function task_indicator {
     fi
 }
 
+alias task_complete="task end.after:yesterday completed"
+
 hash task 2>/dev/null && task_indicator
 
 # Add a default command to use ripgrep if ripgrep is installed
