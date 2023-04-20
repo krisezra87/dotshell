@@ -19,18 +19,20 @@ ZSH_DISABLE_COMPFIX=true
 fpath=("~/.shell/zsh" $fpath)
 source ~/.shell/zsh/dirpersist.plugin.zsh
 source ~/.shell/zsh/git-auto-status.plugin.zsh
-[ -d "$HOME/GIT/config/zsh-autosuggestions" ] || { mkdir -p $HOME/GIT/config && git clone https://github.com/zsh-users/zsh-autosuggestions.git $HOME/GIT/zsh-autosuggestions }
+[ -d "$HOME/GIT/config/zsh-autosuggestions" ] || { mkdir -p $HOME/GIT/config && git clone https://github.com/zsh-users/zsh-autosuggestions.git $HOME/GIT/config/zsh-autosuggestions }
 source ~/GIT/config/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-[ -d "$HOME/GIT/config/zsh-autosuggestions" ] || { mkdir -p $HOME/GIT/config && git clone git@github.com:jeffreytse/zsh-vi-mode.git $HOME/GIT/zsh-vi-mode }
+[ -d "$HOME/GIT/config/zsh-autosuggestions" ] || { mkdir -p $HOME/GIT/config && git clone git@github.com:jeffreytse/zsh-vi-mode.git $HOME/GIT/config/zsh-vi-mode }
 source ~/GIT/config/zsh-vi-mode/zsh-vi-mode.zsh
 
+[ -d "$HOME/GIT/config/zsh-z" ] || { mkdir -p $HOME/GIT/config && git clone git@github.com:agkozak/zsh-z.git $HOME/GIT/config/zsh-z }
 source ~/GIT/config/zsh-z/zsh-z.plugin.zsh
+#
 # Nice up completion menus for z
 zstyle ':completion:*' menu select
 
 # Up and down arrows search by substring
-[ -d "$HOME/GIT/config/zsh-history-substring-search" ] || { mkdir -p $HOME/GIT/config && git clone git@github.com:zsh-users/zsh-history-substring-search.git $HOME?GIT/config/zsh-history-substring-search }
+[ -d "$HOME/GIT/config/zsh-history-substring-search" ] || { mkdir -p $HOME/GIT/config && git clone git@github.com:zsh-users/zsh-history-substring-search.git $HOME/GIT/config/zsh-history-substring-search }
 source ~/GIT/config/zsh-history-substring-search/zsh-history-substring-search.zsh
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
