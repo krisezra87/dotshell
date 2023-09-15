@@ -46,8 +46,6 @@ alias sudo='sudo '
 # take local configs with you for sudo su
 alias suroot="sudo -E su -p"
 
-alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
-
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
 
@@ -66,42 +64,31 @@ if [ -f "/etc/arch-release" ]; then
         alias update="sudo pacman -Syu"
     fi
     alias reflect="sudo reflector -c 'US' -f 12 -l 12 -n 12 --verbose --save /etc/pacman.d/mirrorlist"
+    alias pac="sudo pacman -S"
+
+    # This will throw errors in the preview until you have done pacman -Fy
+    alias pacsearch="pacman -Slq | fzf --multi --preview 'cat <(pacman -Si {1}) <(pacman -Fl {1} | awk \"{print \$2}\")' | xargs -ro sudo pacman -S"
+
+    alias pacpurge="yay -Yc | sudo paccache -r"
+    alias installed_packages="comm -23 <(pacman -Qqt | sort) <(pacman -Sqg base base-devel | sort)"
+
+    alias fzf="fzf --preview 'bat --style=numbers --color=always {}'"
+    alias cat="bat --theme=1337 --style='numbers,changes,header'"
+
 else
+    # Probably ubuntu
     alias update="sudo apt update && sudo apt upgrade"
+    alias pac="sudo apt install"
+    alias fzf="fzf --preview 'batcat --style=numbers --color=always {}'"
+    alias cat="batcat --theme=1337 --style='numbers,changes,header'"
 fi
+
 alias d="dirs -v"
 
 alias build="make clean && rm -f config.h && make && sudo make install"
-
-# Taskwarrior
-alias ta="task add $1"
-alias t="task list"
-alias report="task burndown.daily"
-alias wreport="task burndown.weekly"
-
-#taskopen is maybe something to add
-
 alias grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
 
-# Arch aliases below
-# Pacman aliases
-alias pac="sudo pacman -S"
-# This will throw errors in the preview until you have done pacman -Fy
-alias pacsearch="pacman -Slq | fzf --multi --preview 'cat <(pacman -Si {1}) <(pacman -Fl {1} | awk \"{print \$2}\")' | xargs -ro sudo pacman -S"
-
-# alias pacpurge="sudo pacman -Rns $(pacman -Qdtq) || sudo pacman -Sc"
-alias pacpurge="yay -Yc | sudo paccache -r"
-alias installed_packages="comm -23 <(pacman -Qqt | sort) <(pacman -Sqg base base-devel | sort)"
-
-# Easy utility aliases
-alias wifi="nmtui"
+alias wifi=nmtui
 alias print=lpr
 
-# Configuration aliases
-alias IC="e .config/i3/config"
-alias QC="e .config/qutebrowser/config.py"
-alias fzf="fzf --preview 'bat --style=numbers --color=always {}'"
-
-# Remapping of common commands
-alias cat="bat --theme=1337 --style='numbers,changes,header'"
 alias ll="exa --tree --level=2 --long"
