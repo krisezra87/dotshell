@@ -60,11 +60,12 @@ alias tmux0="tmux a -t 0"
 if [ -f "/etc/arch-release" ]; then
     if hash yay 2>/dev/null; then
         alias update="yay -Syu"
+        alias pac="yay -S"
     else
         alias update="sudo pacman -Syu"
+        alias pac="sudo pacman -S"
     fi
     alias reflect="sudo reflector -c 'US' -f 12 -l 12 -n 12 --verbose --save /etc/pacman.d/mirrorlist"
-    alias pac="sudo pacman -S"
 
     # This will throw errors in the preview until you have done pacman -Fy
     alias pacsearch="pacman -Slq | fzf --multi --preview 'cat <(pacman -Si {1}) <(pacman -Fl {1} | awk \"{print \$2}\")' | xargs -ro sudo pacman -S"
