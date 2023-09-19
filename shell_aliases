@@ -27,10 +27,6 @@ else
     fi
 fi
 
-if [ -f ~/.config/vifm/scripts/vifmrun ]; then
-    alias vifm="~/.config/vifm/scripts/vifmrun"
-fi
-
 # USE THE COLORS
 colorflag="--color=auto"
 
