@@ -67,7 +67,6 @@ setopt HIST_IGNORE_SPACE
 
 # These all come with the shell repo so it is fine to source them directly
 source ~/.shell/zsh/aliases.zsh
-# source ~/.shell/zsh/extra.zsh
 source ~/.shell/shell_aliases
 source ~/.shell/shell_functions
 
