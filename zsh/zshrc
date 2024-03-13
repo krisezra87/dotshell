@@ -89,3 +89,9 @@ hash task 2>/dev/null && task_indicator
 
 # Add a default command to use ripgrep if ripgrep is installed
 hash rg && export FZF_DEFAULT_COMMAND='rg --files --hidden --glob=!.git'
+
+autoload -z edit-command-line
+zle -N edit-command-line
+# Edit the line on the terminal in vim by pressing spacebar in normal mode.  Save to replace on the line, enter to run
+bindkey -M vicmd ' ' edit-command-line
+
