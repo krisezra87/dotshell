@@ -84,9 +84,6 @@ export PATH=~/scripts:$PATH
 # Add local programs
 [ -d "$HOME/.local/bin" ] && export PATH="$HOME/.local/bin:$PATH"
 
-
-hash task 2>/dev/null && task_indicator
-
 # Add a default command to use ripgrep if ripgrep is installed
 hash rg && export FZF_DEFAULT_COMMAND='rg --files --hidden --glob=!.git'
 
