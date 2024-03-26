@@ -89,3 +89,8 @@ alias wifi=nmtui
 alias print=lpr
 
 alias ll="exa --tree --level=2 --long"
+
+alias todoist="todoist-cli"
+
+# Note, you can't actually filter on 'assigned to' because shared projects are not supported at present
+alias tasks="todoist-cli list --filter '(today | @soon | overdue)'"
