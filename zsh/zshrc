@@ -92,5 +92,14 @@ zle -N edit-command-line
 # Edit the line on the terminal in vim by pressing spacebar in normal mode.  Save to replace on the line, enter to run
 bindkey -M vicmd ' ' edit-command-line
 
+if [ -f ~/scripts/stop_zettel ]
+then
+    [ -f ~/scripts/show_todo_list ] && ~/scripts/show_todo_list
+else
+    [ -f ~/scripts/show_rand_zettel ] && ~/scripts/show_rand_zettel && touch ~/scripts/stop_zettel
+fi
+
+
+
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
