@@ -36,9 +36,10 @@ zstyle ':completion:*' menu select
 # Up and down arrows search by substring
 [ -d "$HOME/GIT/config/zsh-history-substring-search" ] || { mkdir -p $HOME/GIT/config && git clone git@github.com:zsh-users/zsh-history-substring-search.git $HOME/GIT/config/zsh-history-substring-search }
 source ~/GIT/config/zsh-history-substring-search/zsh-history-substring-search.zsh
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
+bindkey "^[OA" history-substring-search-up
+bindkey "^[OB" history-substring-search-down
 # get keycodes by doing ctrl+v then key of interest
+#
 
 # Make - and _ both complete the same.  Needs work
 # zstyle ':completion:*' matcher-list '' 'm:{-_}={_-}'
@@ -56,12 +57,12 @@ export ARCHFLAGS="-arch x86_64"
 LESS+=" --no-init --quit-if-one-screen"
 
 # Some voodoo for line searching (NOTE THE KEYCODES ARE WRONG)
-# autoload -U up-line-or-beginning-search
-# autoload -U down-line-or-beginning-search
-# zle -N up-line-or-beginning-search
-# zle -N down-line-or-beginning-search
-# bindkey "$terminfo[kcuu1]" up-line-or-beginning-search # Up
-# bindkey "$terminfo[kcud1]" down-line-or-beginning-search # Down
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search # Up
+bindkey "^[[B" down-line-or-beginning-search # Down
 
 # For more termkeys see /etc/zsh/zshrc
 
@@ -76,13 +77,19 @@ source ~/.shell/shell_functions
 # Source local configs if necessary
 [[ -f ~/.config/nvim/.shell_nvim ]] && source ~/.config/nvim/.shell_nvim
 [[ -f ~/.local_shell_config ]] && source ~/.local_shell_config
-[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
+# [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
+# source ~/.fzf.zsh
 
 # Add scripts
 export PATH=~/scripts:$PATH
 
 # Add local programs
 [ -d "$HOME/.local/bin" ] && export PATH="$HOME/.local/bin:$PATH"
+
+alias rook="cd ~/GIT/rook && poetry shell"
+alias shaman="cd ~/GIT/idms && poetry shell"
+
+hash task 2>/dev/null && task_indicator
 
 # Add a default command to use ripgrep if ripgrep is installed
 hash rg && export FZF_DEFAULT_COMMAND='rg --files --hidden --glob=!.git'
@@ -99,7 +106,7 @@ else
     [ -f ~/scripts/show_rand_zettel ] && ~/scripts/show_rand_zettel && touch ~/scripts/stop_zettel
 fi
 
-
-
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
+# source /usr/share/doc/fzf/examples/key-bindings.zsh
+# source /usr/share/doc/fzf/examples/completion.zsh
