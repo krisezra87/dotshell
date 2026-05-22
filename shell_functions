@@ -1,3 +1,14 @@
+# Launch Claude Code in a fresh timestamped session directory under ~/claude-sessions/.
+# All arguments are forwarded to `claude`. After Claude exits you remain in the
+# session dir; `cd -` returns to where you launched from. To label a session,
+# just `mv` the directory afterward.
+function cc {
+    local session_dir="$HOME/claude-sessions/$(date +%Y-%m-%d_%H%M%S)"
+    mkdir -p "$session_dir" || return 1
+    cd "$session_dir" || return 1
+    claude "$@"
+}
+
 # Start a tmux session for a directory
 function tmuxer {
     if [ -z "$1" ]; then
