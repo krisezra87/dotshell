@@ -1,115 +1,56 @@
-# Disable some authentication business for switching to su
+# Disable compfix for sudo su
 ZSH_DISABLE_COMPFIX=true
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 fpath=("$HOME/.shell/zsh" $fpath)
 
 set -o vi
-# [ -d "$HOME/GIT/config/zsh-vi-mode" ] || { mkdir -p $HOME/GIT/config && git clone git@github.com:jeffreytse/zsh-vi-mode.git $HOME/GIT/config/zsh-vi-mode }
-# source ~/GIT/config/zsh-vi-mode/zsh-vi-mode.zsh
 
 source ~/.shell/zsh/dirpersist.plugin.zsh
 source ~/.shell/zsh/git-auto-status.plugin.zsh
+
 [ -d "$HOME/GIT/config/zsh-autosuggestions" ] || { mkdir -p $HOME/GIT/config && git clone https://github.com/zsh-users/zsh-autosuggestions.git $HOME/GIT/config/zsh-autosuggestions }
 source ~/GIT/config/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 [ -d "$HOME/GIT/config/zsh-z" ] || { mkdir -p $HOME/GIT/config && git clone git@github.com:agkozak/zsh-z.git $HOME/GIT/config/zsh-z }
 source ~/GIT/config/zsh-z/zsh-z.plugin.zsh
-#
-# Nice up completion menus for z
-zstyle ':completion:*' menu select
+ZSHZ_CASE=smart
 
-# Up and down arrows search by substring
 [ -d "$HOME/GIT/config/zsh-history-substring-search" ] || { mkdir -p $HOME/GIT/config && git clone git@github.com:zsh-users/zsh-history-substring-search.git $HOME/GIT/config/zsh-history-substring-search }
 source ~/GIT/config/zsh-history-substring-search/zsh-history-substring-search.zsh
 bindkey "^[OA" history-substring-search-up
 bindkey "^[OB" history-substring-search-down
-# get keycodes by doing ctrl+v then key of interest
-#
-
-# Make - and _ both complete the same.  Needs work
-# zstyle ':completion:*' matcher-list '' 'm:{-_}={_-}'
-# Use smartcase with z
-ZSHZ_CASE=smart
 
 source ~/.shell/zsh/ohmy.sh
 source ~/.shell/zsh/kris.zsh-theme
 
 export EDITOR='nvim'
 
-# Compilation flags
-export ARCHFLAGS="-arch x86_64"
-
 LESS+=" --no-init --quit-if-one-screen"
 
-# Some voodoo for line searching (NOTE THE KEYCODES ARE WRONG)
-autoload -U up-line-or-beginning-search
-autoload -U down-line-or-beginning-search
-zle -N up-line-or-beginning-search
-zle -N down-line-or-beginning-search
-bindkey "^[[A" up-line-or-beginning-search # Up
-bindkey "^[[B" down-line-or-beginning-search # Down
+# Explicit overrides for st terminal (application mode vs normal mode arrow codes)
+bindkey "^[[A" up-line-or-beginning-search
+bindkey "^[[B" down-line-or-beginning-search
 
-# For more termkeys see /etc/zsh/zshrc
-
-setopt HIST_IGNORE_SPACE
-
-# These all come with the shell repo so it is fine to source them directly
 source ~/.shell/zsh/aliases.zsh
 source ~/.shell/shell_aliases
 source ~/.shell/shell_functions
 
-
-# Source local configs if necessary
 [[ -f ~/.config/nvim/.shell_nvim ]] && source ~/.config/nvim/.shell_nvim
 [[ -f ~/.local_shell_config ]] && source ~/.local_shell_config
-# [[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
-# source ~/.fzf.zsh
 
-# Add scripts
 export PATH=~/scripts:$PATH
-
-# Add local programs
 [ -d "$HOME/.local/bin" ] && export PATH="$HOME/.local/bin:$PATH"
 
-alias rook="cd ~/GIT/rook && poetry shell"
-alias shaman="cd ~/GIT/idms && poetry shell"
-
-# hash task 2>/dev/null && task_indicator
-
-# Add a default command to use ripgrep if ripgrep is installed
 hash rg 2>/dev/null && export FZF_DEFAULT_COMMAND='rg --files --hidden --glob=!.git'
 
-autoload -z edit-command-line
-zle -N edit-command-line
-# Edit the line on the terminal in vim by pressing spacebar in normal mode.  Save to replace on the line, enter to run
+# Edit command line in vim with Space in normal mode
 bindkey -M vicmd ' ' edit-command-line
 
-if [ -f ~/scripts/stop_zettel ]
-then
+if [ -f ~/scripts/stop_zettel ]; then
     [ -f ~/scripts/show_todo_list ] && ~/scripts/show_todo_list
 else
     [ -f ~/scripts/show_rand_zettel ] && ~/scripts/show_rand_zettel && touch ~/scripts/stop_zettel
 fi
-
-# source /usr/share/fzf/key-bindings.zsh
-# source /usr/share/fzf/completion.zsh
-# source /usr/share/doc/fzf/examples/key-bindings.zsh
-# source /usr/share/doc/fzf/examples/completion.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export TERM=st-256color
