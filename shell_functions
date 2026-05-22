@@ -17,12 +17,12 @@ function tmuxer {
         if [ -d "$1" ]; then
             DIR=$1
         else
-            echo "'$2' Not a valid directory"
+            echo "'$1' Not a valid directory"
                 return 1
         fi
     fi
     SESSION=${DIR##*/}
-    SESSIONEXISTS=$(tmux list-sessions > /dev/null 2>&1 | grep $SESSION)
+    SESSIONEXISTS=$(tmux list-sessions 2>/dev/null | grep "$SESSION")
 
 # Only create tmux session if it doesn't already exist
     if [ "$SESSIONEXISTS" = "" ]
@@ -85,7 +85,7 @@ function size {
         if [ -d "$1" ]; then
             du -Sh -d 1 $1
         else
-            echo "'$2' Not a valid directory"
+            echo "'$1' Not a valid directory"
                 return 1
         fi
     fi

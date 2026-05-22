@@ -42,21 +42,6 @@ function git_prompt_info {
   fi
 }
 
-function put_spacing {
-    local git=$(git_prompt_info)
-    if [ ${#git} != 0 ]; then
-        ((git=${#git} - 10))
-    else
-        git=0
-    fi
-    local termwidth
-    (( termwidth = ${COLUMNS} - 3 - ${#HOST} - ${#$(get_pwd)} - ${#USER}- ${git} ))
-    local spacing=""
-    for i in {1..$termwidth}; do
-        spacing="${spacing} "
-    done
-    echo $spacing
-}
 
 PROMPT='${newline}${orange}%n@%m: ${blue}$(get_pwd) $(git_prompt_info)${reset_color}${newline}%(!.#.$) '
 RPROMPT='$(vi_mode_prompt_info)'

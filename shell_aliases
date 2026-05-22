@@ -20,7 +20,7 @@ alias hist=history
 if hash neofetch 2>/dev/null; then
     alias version=neofetch
 else
-    if has lsb_release 2>/dev/null; then
+    if hash lsb_release 2>/dev/null; then
         alias version="uname -r && lsb_release -a"
     else
         alias version="uname -r"
