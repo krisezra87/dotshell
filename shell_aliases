@@ -80,8 +80,6 @@ else
     alias cat="batcat --theme=1337 --style='numbers,changes,header'"
 fi
 
-alias d="dirs -v"
-
 alias build="make clean && rm -f config.h && make && sudo make install"
 alias grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
 
